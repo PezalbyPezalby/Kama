@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamasutra Guide</title>
+    <meta property="og:title" content="Kamasutra Guide">
+    <meta property="og:description" content="Esplora le migliori posizioni con la tua partner">
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+        }
+
+        body {
+            padding: var(--space-16);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: var(--space-32);
+        }
+
+        h1 {
+            font-size: var(--font-size-3xl);
+            margin: 0 0 var(--space-8) 0;
+            color: var(--color-primary);
+        }
+
+        .subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+            margin-bottom: var(--space-24);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+            width: 100%;
+        }
+
+        .filter-group label {
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-base);
+        }
+
+        select, input[type="text"] {
+            padding: var(--space-12) var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            background-color: var(--color-surface);
+            color: var(--color-text);
+            cursor: pointer;
+            width: 100%;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .btn {
+            padding: var(--space-8) var(--space-16);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .btn-primary:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .btn-secondary {
+            background: rgba(94, 82, 64, 0.12);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(94, 82, 64, 0.2);
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-16);
+            margin-top: var(--space-24);
+        }
+
+        @media (min-width: 768px) {
+            .positions-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        .position-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            transition: all var(--duration-normal) var(--ease-standard);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .position-card:active {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .position-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .position-card-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-12);
+        }
+
+        .position-card.collapsed .position-details {
+            display: none;
+        }
+
+        .expand-icon {
+            font-size: 20px;
+            transition: transform var(--duration-normal);
+        }
+
+        .position-card.collapsed .expand-icon {
+            transform: rotate(-90deg);
+        }
+
+        .position-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            margin: 0 0 var(--space-8) 0;
+            color: var(--color-primary);
+        }
+
+        .position-category {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            padding: var(--space-4) var(--space-12);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-12);
+            width: fit-content;
+        }
+
+        .position-category.bdsm {
+            background: var(--color-red-500);
+        }
+
+        .position-type {
+            font-size: var(--font-size-base);
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .difficulty {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .difficulty-label {
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-base);
+        }
+
+        .difficulty-stars {
+            display: flex;
+            gap: var(--space-4);
+        }
+
+        .star {
+            color: var(--color-orange-500);
+            font-size: 16px;
+        }
+
+        .position-description {
+            font-size: var(--font-size-base);
+            color: var(--color-text);
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: var(--space-12);
+        }
+
+        .position-details {
+            margin-top: var(--space-12);
+        }
+
+        .detail-section {
+            margin-bottom: var(--space-16);
+        }
+
+        .detail-section-title {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+            font-size: var(--font-size-base);
+        }
+
+        .detail-section-content {
+            font-size: 13px;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .position-tips {
+            background: rgba(33, 128, 141, 0.08);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            font-size: 13px;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--space-32);
+            color: var(--color-text);
+        }
+
+        .empty-state p {
+            margin: 0;
+            font-size: var(--font-size-lg);
+        }
+
+        .random-section {
+            margin-bottom: var(--space-24);
+            text-align: center;
+        }
+
+        .btn-random {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+            font-size: var(--font-size-lg);
+            padding: var(--space-12) var(--space-24);
+            width: 100%;
+        }
+
+        .random-result {
+            margin-top: var(--space-24);
+            display: none;
+        }
+
+        .random-result.active {
+            display: block;
+        }
+
+        .random-card {
+            background: var(--color-surface);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            text-align: center;
+            font-size: var(--font-size-base);
+            color: var(--color-text);
+            margin-top: var(--space-16);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: var(--space-8);
+            }
+
+            h1 {
+                font-size: var(--font-size-2xl);
+                margin: 0 0 var(--space-4) 0;
+            }
+
+            .subtitle {
+                font-size: var(--font-size-base);
+                margin-bottom: var(--space-16);
+            }
+
+            .position-card-header {
+                flex-wrap: wrap;
+                gap: var(--space-8);
+            }
+
+            .position-title {
+                font-size: var(--font-size-lg);
+                margin: 0;
+            }
+
+            .position-category {
+                padding: var(--space-2) var(--space-8);
+                font-size: 11px;
+            }
+
+            .position-type {
+                font-size: 12px;
+                margin-bottom: var(--space-6);
+            }
+
+            .difficulty-label {
+                font-size: 12px;
+            }
+
+            .detail-section-title {
+                font-size: 13px;
+                margin-bottom: var(--space-6);
+            }
+
+            .detail-section-content {
+                font-size: 12px;
+            }
+
+            .random-card {
+                padding: var(--space-16);
+                margin: 0 auto;
+            }
+
+            .position-details {
+                margin-top: var(--space-8);
+            }
+
+            .detail-section {
+                margin-bottom: var(--space-12);
+            }
+
+            select, input[type="text"] {
+                padding: var(--space-10) var(--space-10);
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: var(--space-10) var(--space-12);
+                font-size: 15px;
+            }
+
+            header {
+                margin-bottom: var(--space-16);
+            }
+
+            .random-section {
+                margin-bottom: var(--space-16);
+            }
+
+            .stats {
+                margin-top: var(--space-12);
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔥 Kamasutra Guide 🔥</h1>
+            <p class="subtitle">Esplora le migliori posizioni con la tua partner</p>
+        </header>
+
+        <div class="random-section">
+            <button class="btn btn-primary btn-random" onclick="showRandomPosition()">⚡ Sorprendimi - Posizione Casuale</button>
+            <div class="random-result" id="randomResult"></div>
+        </div>
+
+        <div class="controls">
+            <div class="filter-group">
+                <label for="categoryFilter">Categoria:</label>
+                <select id="categoryFilter" onchange="filterPositions()">
+                    <option value="">Tutte</option>
+                    <option value="normale">Normale</option>
+                    <option value="bdsm">BDSM</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="typeFilter">Tipo:</label>
+                <select id="typeFilter" onchange="filterPositions()">
+                    <option value="">Tutti</option>
+                    <option value="seduta">Seduta</option>
+                    <option value="in piedi">In Piedi</option>
+                    <option value="sdraiata">Sdraiata</option>
+                    <option value="inginocchiata">Inginocchiata</option>
+                    <option value="pendente">Pendente</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="difficultyFilter">Difficoltà:</label>
+                <select id="difficultyFilter" onchange="filterPositions()">
+                    <option value="">Tutte</option>
+                    <option value="1">⭐ Facile</option>
+                    <option value="2">⭐⭐ Media</option>
+                    <option value="3">⭐⭐⭐ Difficile</option>
+                    <option value="4">⭐⭐⭐⭐ Molto Difficile</option>
+                    <option value="5">⭐⭐⭐⭐⭐ Estrema</option>
+                </select>
+            </div>
+
+            <input type="text" id="searchInput" placeholder="Cerca una posizione..." onkeyup="filterPositions()">
+        </div>
+
+        <div class="stats">
+            <p>Visualizzando <strong id="visibleCount">0</strong> di <strong id="totalCount">0</strong> posizioni</p>
+        </div>
+
+        <div class="positions-grid" id="positionsGrid"></div>
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <p>Nessuna posizione trovata. Prova a modificare i filtri! 😊</p>
+        </div>
+    </div>
+
+    <script>
+        const positions = [
+            { id: 1, name: 'Il Missionario', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione classica e intima, perfetta per i principianti.', tips: 'Mantieni il contatto visivo per una connessione più profonda.' },
+            { id: 2, name: 'La Cavalleria', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner si posiziona in cima con il controllo completo.', tips: 'Permette una penetrazione più profonda e ritmi variabili.' },
+            { id: 3, name: 'La Spooning', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione laterale intima e confortevole.', tips: 'Perfetta per momenti dolci e romantici.' },
+            { id: 4, name: 'Il Cane', category: 'normale', type: 'inginocchiata', difficulty: 2, description: 'Posizione dinamica da dietro con grande stimolazione.', tips: 'Consente variazioni di ritmo e profondità.' },
+            { id: 5, name: 'La Farfalla', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'La partner è sdraiata con le gambe verso il petto.', tips: 'Richiede flessibilità e fornisce una penetrazione molto profonda.' },
+            { id: 6, name: 'Il Ponte', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'La partner arcua il corpo, sostenuta dalle mani.', tips: 'Stimolazione G-spot intensificata.' },
+            { id: 7, name: 'La Forbice', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'I corpi sono intrecciati in una posizione laterale.', tips: 'Intimità intensa con ritmo controllato.' },
+            { id: 8, name: 'La Tegola', category: 'normale', type: 'seduta', difficulty: 3, description: 'La partner si ripiega in avanti mentre sei dietro.', tips: 'Angolo di penetrazione molto profondo.' },
+            { id: 9, name: 'La Fiamma', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'La partner ha le gambe verso uno dei lati.', tips: 'Permette movimento lento e profondo.' },
+            { id: 10, name: 'Il Trapezio', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'La partner appoggia una gamba sul tuo petto.', tips: 'Sensibilità clitoridea aumentata.' },
+            { id: 101, name: 'Lo Schiavo Legato', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Partner legato al letto con vincoli morbidi.', tips: 'Usa corde di cotone per comodità e sicurezza.' },
+            { id: 102, name: 'La Regina in Trono', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominatrice seduta in posizione di controllo totale.', tips: 'Stabilisce gerarchia chiara e piacere reciproco.' },
+            { id: 103, name: 'Il Carcere', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Partner inginocchiato in posizione submissiva.', tips: 'Usa parole di sicurezza (safeword) concordate.' },
+            { id: 104, name: 'La Tortura Dolce', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Stimolazione che varia tra piacere e disagio controllato.', tips: 'Comunicazione costante è essenziale.' },
+            { id: 105, name: 'L\'Interrogatorio', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Gioco di ruoli dove il dominante interroga il submissivo.', tips: 'Consenso e limite concordati anticipatamente.' }
+        ];
+
+        function renderPositions(positionsToShow) {
+            const grid = document.getElementById('positionsGrid');
+            const empty = document.getElementById('emptyState');
+
+            if (positionsToShow.length === 0) {
+                grid.innerHTML = '';
+                empty.style.display = 'block';
+                document.getElementById('visibleCount').textContent = '0';
+                return;
+            }
+
+            empty.style.display = 'none';
+            grid.innerHTML = positionsToShow.map(pos => `
+                <div class="position-card collapsed" data-id="${pos.id}">
+                    <div class="position-card-header" onclick="toggleCard(this)">
+                        <div>
+                            <h3 class="position-title">${pos.name}</h3>
+                            <span class="position-category ${pos.category}">${pos.category === 'bdsm' ? '🔗 BDSM' : '❤️ NORMALE'}</span>
+                        </div>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="position-details">
+                        <p class="position-type"><strong>Tipo:</strong> ${pos.type}</p>
+                        <div class="difficulty">
+                            <span class="difficulty-label">Difficoltà:</span>
+                            <div class="difficulty-stars">${'⭐'.repeat(pos.difficulty)}</div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-section-title">📝 Come eseguirla:</div>
+                            <div class="detail-section-content">${pos.description}</div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-section-title">💡 Consigli pratici:</div>
+                            <div class="detail-section-content">${pos.tips}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('visibleCount').textContent = positionsToShow.length;
+        }
+
+        function filterPositions() {
+            const category = document.getElementById('categoryFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            const difficulty = document.getElementById('difficultyFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+
+            let filtered = positions.filter(pos => {
+                const matchesCategory = !category || pos.category === category;
+                const matchesType = !type || pos.type === type;
+                const matchesDifficulty = !difficulty || pos.difficulty.toString() === difficulty;
+                const matchesSearch = !search || pos.name.toLowerCase().includes(search);
+
+                return matchesCategory && matchesType && matchesDifficulty && matchesSearch;
+            });
+
+            renderPositions(filtered);
+        }
+
+        function showRandomPosition() {
+            const randomPos = positions[Math.floor(Math.random() * positions.length)];
+            const resultDiv = document.getElementById('randomResult');
+
+            resultDiv.innerHTML = `
+                <div class="random-card">
+                    <h2 class="position-title">${randomPos.name}</h2>
+                    <span class="position-category ${randomPos.category}">${randomPos.category === 'bdsm' ? '🔗 BDSM' : '❤️ NORMALE'}</span>
+                    <p class="position-type"><strong>Tipo:</strong> ${randomPos.type}</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficoltà:</span>
+                        <div class="difficulty-stars">${'⭐'.repeat(randomPos.difficulty)}</div>
+                    </div>
+                    <p class="position-description">${randomPos.description}</p>
+                    <div class="position-tips"><strong>💡 Tip:</strong> ${randomPos.tips}</div>
+                </div>
+            `;
+
+            resultDiv.classList.add('active');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function toggleCard(header) {
+            const card = header.closest('.position-card');
+            card.classList.toggle('collapsed');
+        }
+
+        document.getElementById('totalCount').textContent = positions.length;
+        renderPositions(positions);
+    </script>
+</body>
+</html>
