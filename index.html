@@ -1,11 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamasutra Guide</title>
-    <meta property="og:title" content="Kamasutra Guide">
-    <meta property="og:description" content="Esplora le migliori posizioni con la tua partner">
     <style>
         :root {
             --color-white: rgba(255, 255, 255, 1);
@@ -319,7 +318,6 @@
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
             font-size: var(--font-size-lg);
             padding: var(--space-12) var(--space-24);
-            width: 100%;
         }
 
         .random-result {
@@ -340,6 +338,14 @@
             margin: 0 auto;
         }
 
+        .navigation {
+            display: flex;
+            gap: var(--space-8);
+            justify-content: center;
+            margin-top: var(--space-24);
+            flex-wrap: wrap;
+        }
+
         .stats {
             text-align: center;
             font-size: var(--font-size-base);
@@ -349,86 +355,16 @@
 
         @media (max-width: 640px) {
             body {
-                padding: var(--space-8);
+                padding: var(--space-12);
             }
 
             h1 {
                 font-size: var(--font-size-2xl);
-                margin: 0 0 var(--space-4) 0;
-            }
-
-            .subtitle {
-                font-size: var(--font-size-base);
-                margin-bottom: var(--space-16);
             }
 
             .position-card-header {
                 flex-wrap: wrap;
                 gap: var(--space-8);
-            }
-
-            .position-title {
-                font-size: var(--font-size-lg);
-                margin: 0;
-            }
-
-            .position-category {
-                padding: var(--space-2) var(--space-8);
-                font-size: 11px;
-            }
-
-            .position-type {
-                font-size: 12px;
-                margin-bottom: var(--space-6);
-            }
-
-            .difficulty-label {
-                font-size: 12px;
-            }
-
-            .detail-section-title {
-                font-size: 13px;
-                margin-bottom: var(--space-6);
-            }
-
-            .detail-section-content {
-                font-size: 12px;
-            }
-
-            .random-card {
-                padding: var(--space-16);
-                margin: 0 auto;
-            }
-
-            .position-details {
-                margin-top: var(--space-8);
-            }
-
-            .detail-section {
-                margin-bottom: var(--space-12);
-            }
-
-            select, input[type="text"] {
-                padding: var(--space-10) var(--space-10);
-                font-size: 16px;
-            }
-
-            .btn {
-                padding: var(--space-10) var(--space-12);
-                font-size: 15px;
-            }
-
-            header {
-                margin-bottom: var(--space-16);
-            }
-
-            .random-section {
-                margin-bottom: var(--space-16);
-            }
-
-            .stats {
-                margin-top: var(--space-12);
-                font-size: 12px;
             }
         }
     </style>
@@ -494,6 +430,7 @@
 
     <script>
         const positions = [
+            // POSIZIONI NORMALI - 100 posizioni
             { id: 1, name: 'Il Missionario', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione classica e intima, perfetta per i principianti.', tips: 'Mantieni il contatto visivo per una connessione più profonda.' },
             { id: 2, name: 'La Cavalleria', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner si posiziona in cima con il controllo completo.', tips: 'Permette una penetrazione più profonda e ritmi variabili.' },
             { id: 3, name: 'La Spooning', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione laterale intima e confortevole.', tips: 'Perfetta per momenti dolci e romantici.' },
@@ -504,11 +441,198 @@
             { id: 8, name: 'La Tegola', category: 'normale', type: 'seduta', difficulty: 3, description: 'La partner si ripiega in avanti mentre sei dietro.', tips: 'Angolo di penetrazione molto profondo.' },
             { id: 9, name: 'La Fiamma', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'La partner ha le gambe verso uno dei lati.', tips: 'Permette movimento lento e profondo.' },
             { id: 10, name: 'Il Trapezio', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'La partner appoggia una gamba sul tuo petto.', tips: 'Sensibilità clitoridea aumentata.' },
+            { id: 11, name: 'La Vibrante', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner si muove in piccoli movimenti vibranti.', tips: 'Stimolazione gentile e prolungata.' },
+            { id: 12, name: 'La Stella', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'La partner ha le gambe larghe a forma di stella.', tips: 'Accesso facile e visuale completa.' },
+            { id: 13, name: 'Il Turbine', category: 'normale', type: 'seduta', difficulty: 3, description: 'La partner ruota il bacino in movimenti circolari.', tips: 'Stimolazione a 360 gradi per entrambi.' },
+            { id: 14, name: 'La Prua', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner fronte a te, in posizione di controllo totale.', tips: 'Perfetto per una vista ravvicinata e intima.' },
+            { id: 15, name: 'La Marea', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione rilassata con movimenti ondulanti.', tips: 'Ritmo dolce e continuativo.' },
+            { id: 16, name: 'Il Focolare', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Entrambi sdraiati di lato, fronte a fronte.', tips: 'Intima e comoda per sessioni lunghe.' },
+            { id: 17, name: 'La Gru', category: 'normale', type: 'seduta', difficulty: 4, description: 'La partner è seduta su di te con una gamba alzata.', tips: 'Richiede equilibrio e forza.' },
+            { id: 18, name: 'L\'Ancora', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner è di fronte a te, ancorata sulla sua schiena.', tips: 'Penetrazione profonda e angolata.' },
+            { id: 19, name: 'Il Vortice', category: 'normale', type: 'seduta', difficulty: 3, description: 'Movimento circolare intenso e ritmato.', tips: 'Stimolazione clitoridea diretta.' },
+            { id: 20, name: 'La Ninfa', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione sdraiata classica, lento e sensuale.', tips: 'Perfetto per i principianti.' },
+            { id: 21, name: 'Il Turbine Inverso', category: 'normale', type: 'seduta', difficulty: 3, description: 'La partner ruota il bacino in direzione opposta.', tips: 'Sensazioni nuove e stimolanti.' },
+            { id: 22, name: 'La Cascata', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'La partner è semi-sdraiata con la testa al di là del letto.', tips: 'Angolo di penetrazione unico.' },
+            { id: 23, name: 'Il Pendolo', category: 'normale', type: 'seduta', difficulty: 2, description: 'Movimento avanti e indietro controllato.', tips: 'Stimolazione G-spot concentrata.' },
+            { id: 24, name: 'La Conchiglia', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione confortevole e rilassante.', tips: 'Perfetto per i momenti intimi e tenerezza.' },
+            { id: 25, name: 'Il Fuoco', category: 'normale', type: 'in piedi', difficulty: 3, description: 'Posizione in piedi con grande intimità.', tips: 'Richiede equilibrio e sincronizzazione.' },
+            { id: 26, name: 'La Sinfonia', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti armoniosi e sincronizzati.', tips: 'Connessione fisica e emotiva profonda.' },
+            { id: 27, name: 'Il Ginocchio', category: 'normale', type: 'inginocchiata', difficulty: 2, description: 'Posizione inginocchiata di fronte a fronte.', tips: 'Intimità faccia a faccia con profondità.' },
+            { id: 28, name: 'La Spirale', category: 'normale', type: 'seduta', difficulty: 3, description: 'Movimento a spirale del bacino.', tips: 'Stimolazione completa da più angoli.' },
+            { id: 29, name: 'La Colomba', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione dolce e sensuale per i momenti romantici.', tips: 'Perfetto per creare connessione emotiva.' },
+            { id: 30, name: 'Il Cavallo Selvaggio', category: 'normale', type: 'seduta', difficulty: 3, description: 'La partner si muove con movimenti selvaggi e appassionati.', tips: 'Adatto per sessioni più intense.' },
+            { id: 31, name: 'La Foglia', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione leggera e naturale.', tips: 'Confortevole e rilassante.' },
+            { id: 32, name: 'Il Volo', category: 'normale', type: 'seduta', difficulty: 4, description: 'La partner è sollevata da terra durante l\'atto.', tips: 'Richiede forza significativa.' },
+            { id: 33, name: 'La Onda', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti ondulanti del corpo intero.', tips: 'Ritmo naturale e piacevole.' },
+            { id: 34, name: 'Il Nodo', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'I corpi sono intrecciati in modo complesso.', tips: 'Intimità estrema con molti punti di contatto.' },
+            { id: 35, name: 'La Luce', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione leggera e gradevole.', tips: 'Perfetto per cominciar e creare stimolo.' },
+            { id: 36, name: 'Il Ritmo', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti cadenzati e sincronizzati.', tips: 'Costruisce eccitazione gradualmente.' },
+            { id: 37, name: 'La Brezza', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione leggera e naturale per sessioni dolci.', tips: 'Ideale per il mattino o momenti tranquilli.' },
+            { id: 38, name: 'Il Terremoto', category: 'normale', type: 'seduta', difficulty: 4, description: 'Movimento intenso e rapido del bacino.', tips: 'Per sessioni appassionate e intense.' },
+            { id: 39, name: 'La Stelle', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner si muove sotto le stelle (metaforicamente).', tips: 'Creativo e appassionato.' },
+            { id: 40, name: 'Il Flusso', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti fluidi e continui.', tips: 'Crea sensazioni di piacere profondo.' },
+            { id: 41, name: 'La Sorgente', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner si muove da una fonte interna di piacere.', tips: 'Enfatizza l\'autostimolazione della partner.' },
+            { id: 42, name: 'Il Sussurro', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione tranquilla e intima per conversazioni sussurrate.', tips: 'Perfetto per momenti molto intimi.' },
+            { id: 43, name: 'La Danza', category: 'normale', type: 'seduta', difficulty: 3, description: 'La partner si muove come in una danza sensuale.', tips: 'Richiede ritmo e coordinamento.' },
+            { id: 44, name: 'La Coccola', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione per coccole e carezze.', tips: 'Ideale per intimità non sessuale prima o dopo.' },
+            { id: 45, name: 'Il Terzo Cielo', category: 'normale', type: 'seduta', difficulty: 5, description: 'Posizione molto avanzata che richiede pratica significativa.', tips: 'Per coppie esperte.' },
+            { id: 46, name: 'La Nuvola', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione leggera come una nuvola.', tips: 'Creazione di sensazione di leggerezza e piacere.' },
+            { id: 47, name: 'Il Tuono', category: 'normale', type: 'seduta', difficulty: 4, description: 'Movimento forte e veloce del bacino.', tips: 'Per momenti di intensa eccitazione.' },
+            { id: 48, name: 'La Fiamma Dolce', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimento lento che costruisce il piacere gradualmente.', tips: 'Crea sensazioni di fuoco controllato.' },
+            { id: 49, name: 'Il Labirinto', category: 'normale', type: 'seduta', difficulty: 3, description: 'Movimenti intricati e imprevedibili.', tips: 'Mantiene alta la sorpresa e l\'eccitazione.' },
+            { id: 50, name: 'La Carezza Infinita', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Carezze lente e continue su tutto il corpo.', tips: 'Costruisce eccitazione in modo gentile.' },
+            { id: 51, name: 'Il Giardino', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner si muove come tra fiori in un giardino.', tips: 'Sensuale e delicata.' },
+            { id: 52, name: 'La Poesia', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti che raccontano una storia di amore.', tips: 'Emotional e fisicamente gratificante.' },
+            { id: 53, name: 'Il Temporale', category: 'normale', type: 'seduta', difficulty: 4, description: 'Movimento tempestoso e passionale.', tips: 'Per momenti di grande intensità.' },
+            { id: 54, name: 'La Seta', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione morbida come la seta.', tips: 'Confortevole e sensuale.' },
+            { id: 55, name: 'Il Lacrima di Gioia', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner esprime gioia intenso durante il movimento.', tips: 'Focali sulla reazione emotiva e fisica della partner.' },
+            { id: 56, name: 'La Marea Alta', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'Movimento come onde crescenti di una marea.', tips: 'Costruisce verso un climax progressivo.' },
+            { id: 57, name: 'Il Cristallo', category: 'normale', type: 'seduta', difficulty: 2, description: 'Movimento preciso e controllato.', tips: 'Permette massima precisione stimolatoria.' },
+            { id: 58, name: 'La Musica', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti ritmici come una canzone.', tips: 'Perfetto per relazionarsi con la musica durante l\'atto.' },
+            { id: 59, name: 'Il Tramonto', category: 'normale', type: 'seduta', difficulty: 2, description: 'Movimenti lenti e graduali come un tramonto.', tips: 'Ideale per sessioni serali romantiche.' },
+            { id: 60, name: 'La Mezza Luna', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'La partner forma una mezzaluna con il corpo.', tips: 'Stimolazione laterale e profonda.' },
+            { id: 61, name: 'Il Vento', category: 'normale', type: 'seduta', difficulty: 2, description: 'Movimenti leggeri e graziosi come il vento.', tips: 'Perfetto per preliminari lunghi.' },
+            { id: 62, name: 'La Gioia Consapevole', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione dove entrambi sono consapevoli del piacere.', tips: 'Mindfulness durante l\'atto sessuale.' },
+            { id: 63, name: 'Il Fuoco Controllato', category: 'normale', type: 'seduta', difficulty: 3, description: 'Movimento appassionato ma controllato.', tips: 'Permette intensità con consapevolezza.' },
+            { id: 64, name: 'La Stella di Mare', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione rilassata con arti estesi.', tips: 'Comoda per sessioni lunghe.' },
+            { id: 65, name: 'Il Battito Cardiaco', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione dove senti il battito del cuore della partner.', tips: 'Connessione emotiva e fisica intima.' },
+            { id: 66, name: 'La Cascata Dolce', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimento come acqua che scorre dolcemente.', tips: 'Ritmo naturale e piacevole.' },
+            { id: 67, name: 'Il Guerriero', category: 'normale', type: 'seduta', difficulty: 3, description: 'Posizione che richiede forza e resistenza.', tips: 'Per coppie atletiche.' },
+            { id: 68, name: 'La Farfalla Dipinta', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimenti delicati come ali di farfalla.', tips: 'Sensuale e lieve.' },
+            { id: 69, name: 'Il Reciproco', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'Posizione dove entrambi ricevono piacere simultaneo.', tips: 'Mutua gratificazione enfatizzata.' },
+            { id: 70, name: 'La Speranza', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione che trasmette speranza e fiducia.', tips: 'Ideale per riconciliazione dopo conflitti.' },
+            { id: 71, name: 'Il Prisma', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'Posizione che scompone il piacere in molte componenti.', tips: 'Stimolazione multi-sensoriale.' },
+            { id: 72, name: 'La Dolcezza', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione dolce e affettuosa.', tips: 'Perfetto per il dopo-sesso e coccole.' },
+            { id: 73, name: 'Il Faro', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione che illumina il piacere.', tips: 'Focus su consapevolezza del piacere.' },
+            { id: 74, name: 'La Sinfonia Finale', category: 'normale', type: 'seduta', difficulty: 4, description: 'Movimento climax finale coordinato.', tips: 'Per il finale intenso e coordinato.' },
+            { id: 75, name: 'La Luna Piena', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione rotonda e completa.', tips: 'Penetrazione profonda e stimolazione completa.' },
+            { id: 76, name: 'Il Sussulto', category: 'normale', type: 'seduta', difficulty: 2, description: 'Piccoli movimenti che causano sussulti di piacere.', tips: 'Per stimolazione precisa.' },
+            { id: 77, name: 'La Fortezza', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'Posizione stabile e sicura per lunghe sessioni.', tips: 'Permette stamina estesa.' },
+            { id: 78, name: 'Il Canto', category: 'normale', type: 'seduta', difficulty: 2, description: 'Posizione che ispira vocalizazioni piacevoli.', tips: 'Incoraggia espressione vocale.' },
+            { id: 79, name: 'La Corona', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione regale e magnifica.', tips: 'Per sentirsi come re e regina.' },
+            { id: 80, name: 'Il Salto', category: 'normale', type: 'seduta', difficulty: 3, description: 'Movimento come un salto ritmato.', tips: 'Dinamico e energico.' },
+            { id: 81, name: 'La Pioggia', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Movimento come gocce di pioggia sulla pelle.', tips: 'Sensuale e rinfrescante.' },
+            { id: 82, name: 'Il Tempio', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione che sente come un luogo sacro.', tips: 'Per connessione spirituale.' },
+            { id: 83, name: 'La Fontana', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'Posizione dove il piacere zampilla in tutte le direzioni.', tips: 'Multi-stimolazione.' },
+            { id: 84, name: 'Il Percorso', category: 'normale', type: 'seduta', difficulty: 2, description: 'Movimento come seguire un percorso predefinito.', tips: 'Permette costruzione controllata.' },
+            { id: 85, name: 'La Rosa', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione delicata come una rosa.', tips: 'Romantica e sensuale.' },
+            { id: 86, name: 'Il Tornado', category: 'normale', type: 'seduta', difficulty: 4, description: 'Movimento vorticoso e intenso.', tips: 'Per coppie che amano l\'intensità.' },
+            { id: 87, name: 'La Tela', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'I corpi si intessono come una tela.', tips: 'Completa interlacciazione.' },
+            { id: 88, name: 'Il Capitano', category: 'normale', type: 'seduta', difficulty: 2, description: 'Posizione dominante ma partnered.', tips: 'Per gioco di ruoli consensuali leggero.' },
+            { id: 89, name: 'La Speranza Rinnovata', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione che rinnova la speranza e la connessione.', tips: 'Ideale per ricominciare dopo pause.' },
+            { id: 90, name: 'Il Girasole', category: 'normale', type: 'seduta', difficulty: 2, description: 'La partner segue il piacere come un girasole segue il sole.', tips: 'Responsive e adattativo.' },
+            { id: 91, name: 'La Vibrazione', category: 'normale', type: 'sdraiata', difficulty: 1, description: 'Posizione per sentire vibrazioni di piacere.', tips: 'Incorporate vibratori se desiderato.' },
+            { id: 92, name: 'Il Flusso Libero', category: 'normale', type: 'seduta', difficulty: 2, description: 'Movimento senza restrizioni predefinite.', tips: 'Improvvisazione e spontaneità.' },
+            { id: 93, name: 'La Carezza Profonda', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione che permette carezze profonde ovunque.', tips: 'Focus su tatto ovunque il corpo.' },
+            { id: 94, name: 'Il Ritorno a Casa', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione che sente come tornare a casa.', tips: 'Comfort e familiarità.' },
+            { id: 95, name: 'La Stella Cadente', category: 'normale', type: 'sdraiata', difficulty: 3, description: 'Posizione con sensazioni rapide e che cambiano.', tips: 'Per variazione costante.' },
+            { id: 96, name: 'Il Battesimo', category: 'normale', type: 'seduta', difficulty: 1, description: 'Posizione per coppie nuove per iniziare insieme.', tips: 'Simboleggia nuovo inizio.' },
+            { id: 97, name: 'La Biblioteca', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione dove senti tutta la storia del vostro amore.', tips: 'Riflessione e connessione.' },
+            { id: 98, name: 'Il Giardino Segreto', category: 'normale', type: 'seduta', difficulty: 3, description: 'Posizione che scopre piaceri nascosti.', tips: 'Esplorazione e sorpresa.' },
+            { id: 99, name: 'La Fiamma Eterna', category: 'normale', type: 'sdraiata', difficulty: 2, description: 'Posizione che mantiene passione nel tempo.', tips: 'Per coppie long-term.' },
+            { id: 100, name: 'Il Paradiso', category: 'normale', type: 'seduta', difficulty: 4, description: 'Posizione che ti fa sentire in paradiso.', tips: 'La combinazione perfetta di tutto.' },
+
+            // POSIZIONI BDSM - 100 posizioni
             { id: 101, name: 'Lo Schiavo Legato', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Partner legato al letto con vincoli morbidi.', tips: 'Usa corde di cotone per comodità e sicurezza.' },
             { id: 102, name: 'La Regina in Trono', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominatrice seduta in posizione di controllo totale.', tips: 'Stabilisce gerarchia chiara e piacere reciproco.' },
             { id: 103, name: 'Il Carcere', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Partner inginocchiato in posizione submissiva.', tips: 'Usa parole di sicurezza (safeword) concordate.' },
             { id: 104, name: 'La Tortura Dolce', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Stimolazione che varia tra piacere e disagio controllato.', tips: 'Comunicazione costante è essenziale.' },
-            { id: 105, name: 'L\'Interrogatorio', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Gioco di ruoli dove il dominante interroga il submissivo.', tips: 'Consenso e limite concordati anticipatamente.' }
+            { id: 105, name: 'L\'Interrogatorio', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Gioco di ruoli dove il dominante interroga il submissivo.', tips: 'Consenso e limite concordati anticipatamente.' },
+            { id: 106, name: 'Il Sacrificio', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Submissive in posizione di massima vulnerabilità.', tips: 'Aftercare importante dopo sessione intensa.' },
+            { id: 107, name: 'La Gabbia Invisibile', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Partner limitato da comandi verbali piuttosto che fisici.', tips: 'Stabilire limiti chiari verbalmente.' },
+            { id: 108, name: 'Il Gioco della Punizione', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Gioco dove infrazioni immaginarie ricevono punizioni concordate.', tips: 'Usa strumenti leggeri per iniziare.' },
+            { id: 109, name: 'La Servitù', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Submissive serve il partner in vari modi.', tips: 'Roleplay consensuale e divertente.' },
+            { id: 110, name: 'Il Circolo di Fuoco', category: 'bdsm', type: 'seduta', difficulty: 4, description: 'Stimolazione intensa da più parti simultaneamente.', tips: 'Richiede comunicazione costante.' },
+            { id: 111, name: 'La Corte Regale', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Dominante circondato da submissives (fantasia di gruppo).', tips: 'Discussione dettagliata di fantasie di gruppo.' },
+            { id: 112, name: 'Il Processo', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Gioco di ruoli legale dove il submissive è "processato".', tips: 'Sviluppare una trama coerente insieme.' },
+            { id: 113, name: 'La Bella Addormentata', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Partner simulato addormentato per gioco erotico.', tips: 'Consenso esplicito beforehand essenziale.' },
+            { id: 114, name: 'Il Dittatore', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Partner dominante in ruolo di dittatore assoluto.', tips: 'Gioco di potere consensuale.' },
+            { id: 115, name: 'La Schiavitù Domestica', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Submissive serve domesticamente durante preliminari.', tips: 'Integra servizi domestici nel gioco.' },
+            { id: 116, name: 'Il Cavallo di Troia', category: 'bdsm', type: 'seduta', difficulty: 4, description: 'Submissive seduto in posizione difficile senza tregua.', tips: 'Limita tempo per sicurezza fisica.' },
+            { id: 117, name: 'La Cena Regale', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Dominante usa submissive come tavolo per servire cibo.', tips: 'Igiene importante in questo gioco.' },
+            { id: 118, name: 'L\'Accusa Falsa', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Dominante accusa falsamente e punisce per "crimini".', tips: 'Mantieni il tono leggero e giocoso.' },
+            { id: 119, name: 'La Festa Privata', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Submissive partecipa a festa come "ospite speciale".', tips: 'Fantasia di voyeurismo controllato.' },
+            { id: 120, name: 'Il Mercato dei Schiavi', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Gioco di ruoli dove submissive è "venduto" al miglior offerente.', tips: 'Gioco fantastico e consensuale.' },
+            { id: 121, name: 'La Stanza Tortura', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Ambiente dedicato al gioco BDSM intenso.', tips: 'Equipaggiamento sicuro e testato essenziale.' },
+            { id: 122, name: 'Il Prigioniero', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Submissive in "prigione" per interi periodi.', tips: 'Limita tempo per evitare danni fisici.' },
+            { id: 123, name: 'La Lotta per il Potere', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Entrambi i partner lottano per dominanza (consensualmente).', tips: 'Stabilisci regole di safety beforehand.' },
+            { id: 124, name: 'La Corona di Spine', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Submissive in posizione scomoda mantenuta a lungo.', tips: 'Monitoraggio costante per sicurezza.' },
+            { id: 125, name: 'Il Gioco del Silenzio', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Submissive non può parlare durante sessione.', tips: 'Sviluppare sistema di segnali non-verbali.' },
+            { id: 126, name: 'La Sala del Trono', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Submissive serve da sgabello o supporto.', tips: 'Distribuisci peso equamente.' },
+            { id: 127, name: 'Il Giudice Imparziale', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominante come giudice che condanna submissive.', tips: 'Trama coerente aumenta piacere.' },
+            { id: 128, name: 'La Catena Infinita', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Partner legato con catene per gioco esteso.', tips: 'Materiali di qualità per comfort e sicurezza.' },
+            { id: 129, name: 'Il Trattamento Medievale', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Gioco a tema medievale con strumenti e ruoli.', tips: 'Costumi aumentano immersione.' },
+            { id: 130, name: 'La Vendita di Corpi', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Gioco di ruoli dove parti del corpo sono "vendute".', tips: 'Fantasia consensuale e giocosa.' },
+            { id: 131, name: 'Il Laboratorio Segreto', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Dominante sperimenta nuove sensazioni su submissive.', tips: 'Comunicazione di ricerca sensoriale importante.' },
+            { id: 132, name: 'La Festa della Sofferenza', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Celebrazione consensuale della sofferenza controllata.', tips: 'Monitoraggio costante della reazione fisica.' },
+            { id: 133, name: 'Il Re della Notte', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Dominante come sovrano della notte sessuale.', tips: 'Illuminazione scarsa aumenta atmosfera.' },
+            { id: 134, name: 'La Maledizione', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Dominante "maledice" submissive in gioco erotico.', tips: 'Usa linguaggio potente consensualmente.' },
+            { id: 135, name: 'Il Museo delle Torture', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Submissive esposto a vari strumenti lentamente.', tips: 'Introduzione graduale per conforto.' },
+            { id: 136, name: 'La Trasformazione', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Submissive trasformato in persona diversa attraverso gioco.', tips: 'Costumi e accessori aiutano trasformazione.' },
+            { id: 137, name: 'Il Punto di Rottura', category: 'bdsm', type: 'sdraiata', difficulty: 5, description: 'Sessione che spinge limite submissive intenzionalmente.', tips: 'Requiere comunicazione estrema e fiducia.' },
+            { id: 138, name: 'La Reclusione', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Submissive segregato fisicamente per periodi.', tips: 'Usa gabbie sicure o stanze dedicate.' },
+            { id: 139, name: 'Il Gioco del Denaro', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Submissive paga (symbolicamente) per piaceri.', tips: 'Usa giocattoli come valuta fittizia.' },
+            { id: 140, name: 'La Festa Oscura', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Evento BDSM dedicato a piaceri estremi.', tips: 'Pianificazione dettagliata essenziale.' },
+            { id: 141, name: 'Il Tempio della Sofferenza', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Ambiente spirituale dedicato a sofferenza controllata.', tips: 'Meditazione BDSM prima della sessione.' },
+            { id: 142, name: 'La Corsa alle Armi', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Dominante con collezione di strumenti da usare.', tips: 'Introduci uno strumento alla volta.' },
+            { id: 143, name: 'Il Gioco del Fuoco', category: 'bdsm', type: 'sdraiata', difficulty: 5, description: 'Gioco estremo con calore e freddo alternati.', tips: 'Estrema cautela per evitare bruciature.' },
+            { id: 144, name: 'La Vendetta', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Gioco di ruoli dove dominante si vendica.', tips: 'Mantieni tono giocoso nonostante tema.' },
+            { id: 145, name: 'Il Trono di Cristallo', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominante su posizione elevata e dominante.', tips: 'Usa cushioni per comodità duratura.' },
+            { id: 146, name: 'La Condanna Perpetua', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Fantasia di condanna a lunga "sentenza" BDSM.', tips: 'Gioco fantastico esteso nel tempo.' },
+            { id: 147, name: 'Il Museo Vivente', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Submissive rimane immobile come statua mentre dominante agisce.', tips: 'Richiede controllo fisico e mentale.' },
+            { id: 148, name: 'La Corte dei Miracoli', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Fantasia storica di corte decadente.', tips: 'Costumi e set aumentano immersione.' },
+            { id: 149, name: 'Il Gioco del Denaro Reale', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Scambi monetari nel contesto BDSM consensuale.', tips: 'Negozia importi beforehand.' },
+            { id: 150, name: 'La Liberazione', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Submissive liberato dopo "punizione" per climax consensuale.', tips: 'Rinforza dinamica attraverso ciclo reward.' },
+            { id: 151, name: 'Il Sacrificio Umano', category: 'bdsm', type: 'seduta', difficulty: 4, description: 'Gioco di ruoli rituale con sacrificio simbolico.', tips: 'Trama elaborata aumenta eccitazione.' },
+            { id: 152, name: 'La Perdizione', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Submissive completamente perso nel controllo del dominante.', tips: 'Crea scenario di completa sottomissione.' },
+            { id: 153, name: 'Il Teatro della Crudeltà', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Spettacolo di gioco BDSM per pubblico immaginato.', tips: 'Aumenta eccitazione attraverso voyeurismo fantastico.' },
+            { id: 154, name: 'La Dimora del Male', category: 'bdsm', type: 'seduta', difficulty: 4, description: 'Ambientazione che evoca male consensuale.', tips: 'Illuminazione scarsa e musica horror aumentano atmosfera.' },
+            { id: 155, name: 'Il Gioco dei Desideri', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Dominante concede/nega desideri di submissive.', tips: 'Alternanza reward/punishment crea ciclo eccitante.' },
+            { id: 156, name: 'La Stanza dei Segreti', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Luogo dove submissive condivide fantasie sommesse.', tips: 'Crea spazio sicuro per confessioni erotiche.' },
+            { id: 157, name: 'Il Duello Erotico', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Dominante e submissive in competizione controllata.', tips: 'Regole chiare aumentano divertimento.' },
+            { id: 158, name: 'La Corte Infernale', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Fantasia di corte infernale con gioco BDSM intenso.', tips: 'Costumi demoniaci e atmosfera scura.' },
+            { id: 159, name: 'Il Patto Diabolico', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Gioco di ruoli dove submissive firma "contratto" BDSM.', tips: 'Uso di carta e firma aumenta senso di vincolo.' },
+            { id: 160, name: 'La Resurrezione', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Aftercare intenso dopo sessione BDSM come "resurrection".', tips: 'Transizione da intense a tenerezza importante.' },
+            { id: 161, name: 'Il Gioco dello Specchio', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Submissive deve imitare dominante per evitare punizione.', tips: 'Gioco di controllo con elemento ludico.' },
+            { id: 162, name: 'La Favola Oscura', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Fiaba rivisitata con tema BDSM scuro.', tips: 'Trama coerente aumenta immersione.' },
+            { id: 163, name: 'Il Gioco del Tempo', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominante controlla quando submissive può avere piacere.', tips: 'Rinforza controllo temporale.' },
+            { id: 164, name: 'La Città Proibita', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Ambientazione di città antica con intrighi erotici.', tips: 'Costumi e set creano immersione.' },
+            { id: 165, name: 'Il Laboratorio Alchimico', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Dominante come alchimista che trasforma submissive.', tips: 'Esperimenti sensoriali consensuali.' },
+            { id: 166, name: 'La Battaglia del Controllo', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Lotta cosensuale per dominanza.', tips: 'Stabilisci regole di safety beforehand.' },
+            { id: 167, name: 'Il Giardino Infetto', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Natura corrotta come metafora BDSM.', tips: 'Piante e naturale elementi per atmosfera.' },
+            { id: 168, name: 'La Cascata di Conseguenze', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Azioni submissive portano a conseguenze BDSM crescenti.', tips: 'Costruisci tensione attraverso conseguenze progressive.' },
+            { id: 169, name: 'Il Gioco della Verità', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Submissive deve rispondere domande sotto minaccia erotica.', tips: 'Crea vulnerabilità attraverso confessione.' },
+            { id: 170, name: 'La Fortezza dell\'Oscurità', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Castello BDSM dove avvengono giochi intensi.', tips: 'Crea scenario fantastico e immersivo.' },
+            { id: 171, name: 'Il Gioco del Ghigno', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Dominante con espressione crudele controllata.', tips: 'Gioco psicologico piuttosto che fisico.' },
+            { id: 172, name: 'La Lotta contro le Catene', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Submissive lotta contro vincoli crescenti.', tips: 'Usa resistenza fisica per piacere.' },
+            { id: 173, name: 'Il Palazzo del Potere', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Ambientazione regale dove potere è aphrodisiac.', tips: 'Decorazioni lussuose aumentano atmosfera.' },
+            { id: 174, name: 'La Spirale della Perdizione', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Escalation controllata verso perdizione consensuale.', tips: 'Comunicazione è essenziale per safety.' },
+            { id: 175, name: 'Il Gioco del Dolore', category: 'bdsm', type: 'seduta', difficulty: 4, description: 'Esplorazione controllata di dolore piacevole.', tips: 'Usa safeword rigorosamente.' },
+            { id: 176, name: 'La Redenzione Attraverso la Sofferenza', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Sofferenza consensuale come catarsi erotica.', tips: 'Theme religioso aggiunge profondità psicologica.' },
+            { id: 177, name: 'Il Gioco dell\'Assassinio Erotico', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Gioco di ruoli di "assassinio" erotico consensuale.', tips: 'Manutenere tono fantastico e ludico.' },
+            { id: 178, name: 'La Piazza Pubblica', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Fantasia di gioco BDSM in luogo pubblico.', tips: 'Usualmente fantasia mentale piuttosto che reale.' },
+            { id: 179, name: 'Il Gioco della Follia', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Dominante come pazzo che controlla submissive.', tips: 'Gioco psicologico piuttosto che violenza.' },
+            { id: 180, name: 'La Comunione Oscura', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Rituale sacro corrotto per gioco BDSM.', tips: 'Tema religioso aggiunge tabù piacevole.' },
+            { id: 181, name: 'Il Gioco del Rifiuto', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominante rifiuta piacere a submissive per controllo.', tips: 'Frustrazione controllata aumenta desiderio.' },
+            { id: 182, name: 'La Caccia', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Dominante "caccia" submissive in spazio controllato.', tips: 'Richiede spazio sufficientemente grande.' },
+            { id: 183, name: 'Il Gioco della Marionetta', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Submissive come marionetta controllata dal dominante.', tips: 'Usa comandi per movimento controllato.' },
+            { id: 184, name: 'La Festa della Dominanza', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Celebrazione del controllo e della sottomissione.', tips: 'Atmosfera festiva nonostante tema BDSM.' },
+            { id: 185, name: 'Il Gioco del Sussurro', category: 'bdsm', type: 'sdraiata', difficulty: 1, description: 'Dominante sussurra comandi e minacce nel BDSM psicologico.', tips: 'Gioco principalmente verbale.' },
+            { id: 186, name: 'La Trasformazione Rituale', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Rituale che trasforma submissive in persona diversa.', tips: 'Costumi e attributi segnano trasformazione.' },
+            { id: 187, name: 'Il Gioco del Serpente', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Movimento sinuoso e controllato del dominante.', tips: 'Gesti fluidi aumentano senso di controllo.' },
+            { id: 188, name: 'La Morte Erotica', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Fantasia di morte consensuale nel gioco BDSM.', tips: 'Estrema cautela con respirazione limitata.' },
+            { id: 189, name: 'Il Gioco del Gigante', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Dominante come gigante che controlla submissive piccolo.', tips: 'Gioco di dimensioni relative aumenta dinamica.' },
+            { id: 190, name: 'La Festa della Perdita', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Cerimonia dove submissive perde vari diritti.', tips: 'Accumula perdite di diritti progressivamente.' },
+            { id: 191, name: 'Il Gioco del Traditore', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Submissive punito per "tradimento" consensuale.', tips: 'Fiaba drammatica aumenta immersione.' },
+            { id: 192, name: 'La Corte dell\'Immortale', category: 'bdsm', type: 'inginocchiata', difficulty: 2, description: 'Fantasia di corte immortale con BDSM eterno.', tips: 'Tema fantastico crea escursione mentale.' },
+            { id: 193, name: 'Il Gioco dello Spettro', category: 'bdsm', type: 'seduta', difficulty: 2, description: 'Dominante come fantasma che controlla vivi (submissive).', tips: 'Tema spettrale aumenta brivido.' },
+            { id: 194, name: 'La Consacrazione Oscura', category: 'bdsm', type: 'sdraiata', difficulty: 3, description: 'Cerimonia BDSM che consacra la relazione di potere.', tips: 'Rituale formale aumenta significato.' },
+            { id: 195, name: 'Il Gioco della Bestia', category: 'bdsm', type: 'inginocchiata', difficulty: 3, description: 'Submissive come bestia controllata dal dominante.', tips: 'Movimenti animali aumentano immersione.' },
+            { id: 196, name: 'La Festa dell\'Apocalisse', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Tema apocalittico per gioco BDSM finale.', tips: 'Scenario fantasy esteso.' },
+            { id: 197, name: 'Il Gioco della Magia Nera', category: 'bdsm', type: 'sdraiata', difficulty: 2, description: 'Dominante come mago nero che controlla submissive.', tips: 'Incantesimi verbali aumentano atmosfera.' },
+            { id: 198, name: 'La Trasformazione Finale', category: 'bdsm', type: 'inginocchiata', difficulty: 4, description: 'Trasformazione completa e permanente consensuale nel gioco.', tips: 'Contratto BDSM formalizza cambiamento.' },
+            { id: 199, name: 'Il Gioco dell\'Eternità', category: 'bdsm', type: 'seduta', difficulty: 3, description: 'Gioco BDSM che imita eternità di controllo.', tips: 'Sensazione di infinito aumenta intensità.' },
+            { id: 200, name: 'La Corona della Perdizione', category: 'bdsm', type: 'sdraiata', difficulty: 4, description: 'Finale epico dove submissive riceve "corona" di perdizione consensuale.', tips: 'Scenario culminante aumenta significato.' }
         ];
 
         function renderPositions(positionsToShow) {
@@ -545,6 +669,14 @@
                         <div class="detail-section">
                             <div class="detail-section-title">💡 Consigli pratici:</div>
                             <div class="detail-section-content">${pos.tips}</div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-section-title">🎯 Benefici:</div>
+                            <div class="detail-section-content">${pos.benefits || 'Stimolazione profonda e piacevole per entrambi i partner.'}</div>
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-section-title">🎭 Variazioni:</div>
+                            <div class="detail-section-content">${pos.variations || 'Prova a variare il ritmo, la profondità o gli angoli di penetrazione per scoprire nuove sensazioni.'}</div>
                         </div>
                     </div>
                 </div>
